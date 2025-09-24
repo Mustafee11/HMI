@@ -18,6 +18,15 @@ app.MapPost("/alerts", async (Alert alert, IHubContext<HmiHub> hub) =>
   
 });
 
+app.MapPost("/fanStatus", async (FanStatus fanstatus, IHubContext<HmiHub> hub) =>
+{
+
+    await hub.Clients.All.SendAsync("FanStatusUpdate", fanstatus);
+    return Results.Accepted();
+
+
+});
+
 app.MapHub<HmiHub>("/hmi");
 
 
