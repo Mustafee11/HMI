@@ -38,6 +38,12 @@ namespace HMI.ViewModels
             CurrentViewModel = _serviceProvider.GetRequiredService<AlertViewModel>();
         }
 
+        [RelayCommand]
+        private void NavigateToFanStatus()
+        {
+            CurrentViewModel = _serviceProvider.GetRequiredService<FanStatusViewModel>();
+        }
+
 
     }
 }

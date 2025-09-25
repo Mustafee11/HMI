@@ -25,6 +25,11 @@ namespace HMI
            
             bulider.Services.AddTransient<HomeView>();
 
+
+            bulider.Services.AddSingleton<FanStatusViewModel>();
+
+            bulider.Services.AddTransient<FanStatusView>();
+
             bulider.Services.AddSingleton<MainViewModel>();
             bulider.Services.AddSingleton<MainWindow>();
 
@@ -43,7 +48,10 @@ namespace HMI
 
             var alertViewModel  = _host!.Services.GetRequiredService<AlertViewModel>();
             _ = alertViewModel.StartAsync();
-           
+
+            var FanStatusViewModel = _host!.Services.GetRequiredService<FanStatusViewModel>();
+            _ = FanStatusViewModel.StartAsync();
+
             var mainWindow = _host!.Services.GetRequiredService<MainWindow>();
             mainWindow.DataContext = _host!.Services.GetRequiredService<MainViewModel>();
             mainWindow.Show();
