@@ -30,6 +30,10 @@ namespace HMI
 
             bulider.Services.AddTransient<FanStatusView>();
 
+            bulider.Services.AddSingleton<CommandControlViewModel>();
+
+            bulider.Services.AddTransient<ControlFanView>();
+
             bulider.Services.AddSingleton<MainViewModel>();
             bulider.Services.AddSingleton<MainWindow>();
 

@@ -27,6 +27,15 @@ app.MapPost("/fanStatus", async (FanStatus fanstatus, IHubContext<HmiHub> hub) =
 
 });
 
+app.MapPost("/Commands", async (CommandControl cmd, IHubContext<HmiHub> hub) =>
+{
+
+    await hub.Clients.All.SendAsync("CommandsReviced", cmd);
+    return Results.Accepted();
+
+
+});
+
 app.MapHub<HmiHub>("/hmi");
 
 

@@ -31,6 +31,10 @@
                     <views:FanStatusView/>
                 </DataTemplate>
 
+                <DataTemplate DataType="{x:Type viewmodels:CommandControlViewModel}">
+                    <views:ControlFanView/>
+                </DataTemplate>
+
             </ContentControl.Resources>
         </ContentControl>
 
@@ -40,6 +44,7 @@
             <Button x:Name="Homebtn" Style="{DynamicResource btn}" Command="{Binding NavigateToHomeCommand}" Content=" Home"/>
             <Button  Style="{DynamicResource btn}" Command="{Binding NavigateToAlertCommand}" Content="Alert"/>
             <Button  Style="{DynamicResource btn}" Command="{Binding NavigateToFanStatusCommand}" Content="FanStatus"/>
+            <Button  Style="{DynamicResource btn}" Command="{Binding NavigateToControlFanCommand}" Content="ControlFan"/>
 
         </StackPanel>
 

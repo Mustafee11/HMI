@@ -44,6 +44,12 @@ namespace HMI.ViewModels
             CurrentViewModel = _serviceProvider.GetRequiredService<FanStatusViewModel>();
         }
 
+        [RelayCommand]
+        private void NavigateToControlFan()
+        {
+            CurrentViewModel = _serviceProvider.GetRequiredService<CommandControlViewModel>();
+        }
+
 
     }
 }
