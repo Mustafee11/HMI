@@ -19,6 +19,9 @@ namespace HMI.ViewModels
         [ObservableProperty]
         private string _title = "Control Fan";
 
+        [ObservableProperty]
+        private double? _value;
+
         public CommandControlViewModel(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -28,14 +31,21 @@ namespace HMI.ViewModels
         [RelayCommand]
         public async Task TurnOn()
         {
-            var command = new CommandControl { Action = "Turn on" };
+            var command = new CommandControl { Action = "TurnOn" };
             await _http.PostAsJsonAsync("/Commands" , command);
         }
 
         [RelayCommand]
         public async Task TurnOff()
         {
-            var command = new CommandControl { Action = "Turn off" };
+            var command = new CommandControl { Action = "TurnOff" };
+            await _http.PostAsJsonAsync("/Commands", command);
+        }
+
+        [RelayCommand]
+        public async Task SetSpeed()
+        {
+            var command = new CommandControl { Action = "SetSpeed", Value = Value.Value };
             await _http.PostAsJsonAsync("/Commands", command);
         }
 
