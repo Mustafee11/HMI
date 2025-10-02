@@ -5,10 +5,12 @@
              >
     <Application.Resources>
 
-        <!--<Style x:Key="btn" TargetType="Button">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="15 10"/>
-        </Style>-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styling.xaml"/>
+                <ResourceDictionary Source="/Resources/Fonts/Fonts.xaml"/>
+               
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

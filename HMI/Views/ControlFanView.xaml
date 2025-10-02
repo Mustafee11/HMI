@@ -13,7 +13,7 @@ d:DataContext="{d:DesignInstance Type=viewmodel:CommandControlViewModel}"
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-
+          
 
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Margin="0 0 0 10">
@@ -21,12 +21,33 @@ d:DataContext="{d:DesignInstance Type=viewmodel:CommandControlViewModel}"
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left"  >
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal"  VerticalAlignment="Center">
 
-            <Button x:Name ="TurnON" Command="{Binding TurnOnCommand }" Content="Turn on" Width="100" Height="40" Margin="0,0,10,0"/>
-            <Button x:Name ="TurnOFF" Command="{Binding TurnOffCommand}" Content="Turn off" Width="100" Height="40"/>
+            <Button x:Name ="TurnON" Command="{Binding TurnOnCommand }"    Style="{StaticResource btn-control}">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="{StaticResource fa-solid}" Text="&#xf011;" FontSize="16" Margin="0,0,5,0"/>
+                    <TextBlock Text="Turn on" FontSize="16"/>
+                </StackPanel>
+
+
+
+
+            </Button>
+            <Button x:Name ="TurnOFF" Command="{Binding TurnOffCommand}"  Style="{StaticResource btn-control}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="{StaticResource fa-solid}" Text="&#xf011;" FontSize="16" Margin="0,0,5,0"/>
+                    <TextBlock Text="Turn off" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            
             <TextBox Text="{Binding Value}" Width="80" Height="40" Margin="10"/>
-            <Button  Command="{Binding SetSpeedCommand}" Content="SetSpeed" Width="100" Height="40"/>
+            <Button  Command="{Binding SetSpeedCommand}"  Style="{StaticResource btn-control}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="{StaticResource fa-solid}" Text="&#xf0e7;" FontSize="16" Margin="0,0,5,0"/>
+                    <TextBlock Text="Set Speed" FontSize="16"/>
+                </StackPanel>
+            </Button>
 
         </StackPanel>
 
