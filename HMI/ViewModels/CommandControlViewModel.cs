@@ -25,28 +25,28 @@ namespace HMI.ViewModels
         public CommandControlViewModel(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-            _http = new HttpClient { BaseAddress = new Uri("http://localhost:5000") };
+            _http = new HttpClient { BaseAddress = new Uri("http://localhost:5261") };
         }
 
         [RelayCommand]
         public async Task TurnOn()
         {
             var command = new CommandControl { Action = "TurnOn" };
-            await _http.PostAsJsonAsync("/Commands" , command);
+            await _http.PostAsJsonAsync("/command" , command);
         }
 
         [RelayCommand]
         public async Task TurnOff()
         {
             var command = new CommandControl { Action = "TurnOff" };
-            await _http.PostAsJsonAsync("/Commands", command);
+            await _http.PostAsJsonAsync("/command", command);
         }
 
         [RelayCommand]
         public async Task SetSpeed()
         {
             var command = new CommandControl { Action = "SetSpeed", Value = Value.Value };
-            await _http.PostAsJsonAsync("/Commands", command);
+            await _http.PostAsJsonAsync("/command", command);
         }
 
 
