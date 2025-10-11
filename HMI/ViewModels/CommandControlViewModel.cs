@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HMI.ViewModels
 {
@@ -45,6 +46,17 @@ namespace HMI.ViewModels
         [RelayCommand]
         public async Task SetSpeed()
         {
+            if (!Value.HasValue)
+            {
+                MessageBox.Show("Please enter a speed value.","Error" ,MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (Value < 0 || Value > 3)
+            {
+                MessageBox.Show("Speed value must be between 0 and 3.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             var command = new CommandControl { Action = "SetSpeed", Value = Value.Value };
             await _http.PostAsJsonAsync("/command", command);
         }
